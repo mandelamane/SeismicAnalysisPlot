@@ -1,0 +1,56 @@
+# Application Setting
+# *必須
+app:
+    WIDTH: 1800 # *アプリケーションの高さ
+    HEIGHT: 1500 # *アプリケーションの幅
+    unit_to_move: 2 # *リージョンの移動幅（秒）
+    cmap: jet # *スペクトログラムの色
+    stations: # *観測点名
+        ########
+        - AX02
+        - AX03
+        - AX04
+        - AX05
+        - AX06
+        - AX07
+        ########
+    spec_range: # *スペクトログラムの色の範囲
+        - -18
+        - -14
+
+# Catalog setting
+catalog:
+    read_csv_file: #　途中のカタログから始める場合に使用
+    init_time: # "整数値"選択される最初の波形の時刻
+    file_name: noise_1 # *このファイル名で保存される（ファイル名にnoise, eq, tremorを含めること）
+    save_dir: /home/xxxx/ # *カタログの保存先
+    time: # *カタログの時間範囲（年月日時分秒まで指定）
+        - 2013/04/01 00:00:00
+        - 2014/03/31 23:59:59
+    radius: # *イベントと観測点の距離範囲（file_nameにtremorまたはeqが含まれるときのみ適用される）
+        - 0
+        - 40
+    dep: # *イベントの深さ範囲（file_nameにeqが含まれるときのみ適用される）
+        - 0
+        - 1000
+    mag: # *イベントのマグニチュード範囲（file_nameにeqが含まれるときのみ適用される）
+        - 0
+        - 9
+    # Interim Catalog
+    eq_interim_file: interim/eq.csv # 地震の初期カタログ
+    tremor_interim_file: interim/tremor.csv # 微動の初期カタログ
+    noise_interim_file: interim/noise.csv # ノイズの初期カタログ
+
+# SAC setting
+sac:
+    sac_dir: /home/xxxx/sac # *sacファイルが保存されているディテクトリ
+    component: U # *成分
+    amp_scale: 4.5 # *波形の最大振幅の上限
+    sampling_rate: 100 # *サンプリング周波数
+    wave_win: 1 # *リージョンで選択させる波形の時間（分）
+    fft_win: 1 # *fftを適用させるときの波形の時間（秒）
+    overlap_rate: 0 # *fftの際のオーバーラップの割合
+    band_width: # *バンドパスフィルタの範囲
+        - 2
+        - 12
+
